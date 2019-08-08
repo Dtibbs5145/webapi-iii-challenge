@@ -1,5 +1,26 @@
-const server = require('./server');
+const express = require('express');
 
-server.listen(5000, () => {
-    console.log('\n*** API running on port 5k ***\n');
-});
+const server = express();
+const postRouter = require('./posts/postRouter')
+const userRouter = require('./users/userRouter')
+const serverRouter = require('./server');
+
+
+server.use(express.json());
+
+server.use('/', serverRouter)
+server.use('/api/users', userRouter);
+server.use('/api/posts', postRouter);
+
+
+
+
+
+server.get('/', (req, res) => {
+    res.send(`<h2>Let's write some middleware!</h2>`)
+  });
+
+
+  const port = process.env.PORT || 5000;
+
+  server.listen(port, () => console.log(`API running on ${port}`))

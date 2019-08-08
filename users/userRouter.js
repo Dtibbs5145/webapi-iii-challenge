@@ -1,6 +1,6 @@
 const express = 'express';
-
-const router = express.Router();
+const db = require('./userDb');
+const router = require('express').Router();
 
 // router.post('/', async (req, res) => {
 //     try {
