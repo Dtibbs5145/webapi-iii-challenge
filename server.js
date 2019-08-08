@@ -1,4 +1,6 @@
 const express = require('express');
+// I had to add require along with the ()
+//I'm not sure if it was supposed to be missing that or not, but thought I would make note of it.
 
 const server = express();
 
